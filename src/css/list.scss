@@ -1,0 +1,14 @@
+.title{
+    color:red;
+    text-align: center;
+    font-size: 18px;
+}
+.a{
+    color: blue;
+}
+div{
+    font-weight: bold;
+}
+:global(.test){
+    color:pink;
+}

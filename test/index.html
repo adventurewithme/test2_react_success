@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <input type="text" v-model="name" name="" id="">
+            <button @click="aa()">aa</button>
+        </div>
+        <ul>
+            <li v-for="item in list" :key='item.id'>
+                <input type="checkbox" name="" id="">
+                id:{{item.id}}**name:{{item.name}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        // el: '#app',
+        data: {
+            list: [
+                { id: 0, name: 'haha1' },
+                { id: 1, name: 'haha2' },
+                { id: 2, name: 'haha3' }
+            ]
+        },
+        methods:{
+            aa(){
+                var news ={id:this.list.length,name:this.name};
+                this.list.unshift(news)
+            }
+        },
+        beforeCreate(){
+            console.log('before',this.$list)
+        },
+        created(){
+            console.log('created',this.$el);
+        },
+        beforeMount(){
+            console.log('beforemount', this.$el);//模板页面
+        },
+        mounted(){
+           console.log('monuted', this.$el);//模板页面  
+        }
+    });
+    vm.$mount('#app');
+</script>
+
+</html>
